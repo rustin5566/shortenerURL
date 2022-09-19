@@ -1,9 +1,21 @@
+
 const express = require('express')
 const app = express()
+const exphbs = require('express-handlebars')
+
+//setting
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+
+app.use(express.static('public'))
 
 
 app.get('/', (req, res) => {
-  res.send('hello test')
+  res.render('index')
+})
+
+app.get('/outcome', (req, res) => {
+  res.render('outcome')
 })
 
 app.listen(3000, () => {
