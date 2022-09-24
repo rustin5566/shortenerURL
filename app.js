@@ -5,9 +5,12 @@ const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const DataBase = require('./models/database')
 const bodyParser = require('body-parser')
+const shortener = require('./URLfunction/shortener')
 
+// use bodyparser
 app.use(bodyParser.urlencoded({ extended: true }))
 
+// mongoose
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 
@@ -20,10 +23,11 @@ db.once('open', () => {
 })
 
 
-//setting
+//setting handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
+// 靜態文件
 app.use(express.static('public'))
 
 
