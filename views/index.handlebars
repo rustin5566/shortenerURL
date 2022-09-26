@@ -1,10 +1,9 @@
 <main class="container  w-50 p-3">
+  {{#if }}
 
-  <div class="container ">
-    <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="這個圖片"
-      class="w-25 p-3">
-  </div>
 
+
+  {{else}}
   <div class="container">
     <form action="/outcome" method="post">
       <h1 class=" d-block  m-5">縮網址</h1>
@@ -12,4 +11,8 @@
       <button class="btn btn-primary d-block m-5" type="submit" id="submit-button">SHORTEN</button>
     </form>
   </div>
+
+
+
+  {{/if}}
 </main>

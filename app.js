@@ -27,7 +27,7 @@ db.once('open', () => {
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
-// 靜態文件
+
 app.use(express.static('public'))
 
 
@@ -35,15 +35,15 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/outcome', (req, res) => {
-  res.render('outcome')
-})
-
 app.post('/outcome', (req, res) => {
-  const data = req.body.data
-  return DataBase.create({ data })
-    .then(() => res.redirect('/'))
+  const host = req.get('host')
+  const originalURL = req.body.data
+  DataBase.findOne({ originalURL })
+    .lean()
+    .then(data => data ? data : DataBase.create({ originalURL, shortenerURL: shortener() }))
+    .then(data => res.render('index', { originalURL, shortenerURL: data.shortenerURL, host }))
     .catch(error => console.log(error))
+  
 })
 
 app.listen(3000, () => {
