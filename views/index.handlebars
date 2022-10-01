@@ -1,9 +1,16 @@
 <main class="container  w-50 p-3">
-  {{#if }}
+  {{#if shortenerURL }}
 
-
+  <div class="container">
+    <form action="/outcome" method="post">
+      <h1 class=" d-block  m-5">Please use this link:</h1>
+      <p>{{ host }}/{{shortenerURL}}</p>
+      <button class="btn btn-primary d-block m-5" type="submit" id="submit-button">Copy</button>
+    </form>
+  </div>
 
   {{else}}
+
   <div class="container">
     <form action="/outcome" method="post">
       <h1 class=" d-block  m-5">縮網址</h1>
@@ -12,7 +19,6 @@
     </form>
   </div>
 
-
-
   {{/if}}
+  
 </main>

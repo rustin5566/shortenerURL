@@ -43,8 +43,21 @@ app.post('/outcome', (req, res) => {
     .then(data => data ? data : DataBase.create({ originalURL, shortenerURL: shortener() }))
     .then(data => res.render('index', { originalURL, shortenerURL: data.shortenerURL, host }))
     .catch(error => console.log(error))
-  
+
 })
+
+app.get('/:shortenerURL', (req, res) => {
+  
+  const host = req.get('host')
+  const shortener = req.params.shortenerURL
+  const errorMsg = `${host}/${shortener} is not exist `
+  DataBase.findOne( req.params )
+    .then(data => data ? res.redirect(data.originalURL) : res.render('error', {errorMsg}) )
+    .catch(error => console.log(error))
+
+})
+
+
 
 app.listen(3000, () => {
   console.log('URL_shortener app.js is running')
