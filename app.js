@@ -13,9 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // use routes
 app.use(routes)
 
-
-
-
 //setting handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')

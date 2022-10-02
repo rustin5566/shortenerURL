@@ -14,7 +14,8 @@
   <div class="container">
     <form action="/outcome" method="post">
       <h1 class=" d-block  m-5">縮網址</h1>
-      <input type="text" placeholder="請輸入網址" class="m-5" aria-describedby="submit-button" name="data">
+          {{!-- 若使用者沒有輸入內容，就按下了送出鈕，需要防止表單送出並提示使用者 --}}
+      <input type="text" placeholder="請輸入網址" class="m-5" aria-describedby="submit-button" name="data" required>
       <button class="btn btn-primary d-block m-5" type="submit" id="submit-button">SHORTEN</button>
     </form>
   </div>

@@ -12,6 +12,7 @@ router.post('/outcome', (req, res) => {
   const originalURL = req.body.data
   DataBase.findOne({ originalURL })
     .lean()
+    // 輸入相同網址時，產生一樣的縮址。 data為 ? 則產生資料
     .then(data => data ? data : DataBase.create({ originalURL, shortenerURL: shortener() }))
     .then(data => res.render('index', { originalURL, shortenerURL: data.shortenerURL, host }))
     .catch(error => console.log(error))
