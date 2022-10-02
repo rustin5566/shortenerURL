@@ -22,7 +22,7 @@ step 4. °õ¦æ±M®×¡A¦b²×ºİ¾÷¿é¤J¡Gnpm run dev
 step 5. ©óºô§}¦C¡A¿é¤J¡Glocalhost:3000
 ```
 
-##¥\¯à
+## ¥\¯à
 ```sh
 ²£¥Í¤@­Óµuºô§}
 ```
@@ -49,9 +49,5 @@ MongoDB
 mongoose 6.0.5
 ```
 
-## Show your support
-
-Give a â­ï? if this project helped you!
-
 ***
-_This README was generated with ?¤ï? by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+_This README was generated  by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
